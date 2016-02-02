@@ -1,0 +1,12 @@
+ul.veg {
+	width: 100%;
+}
+li {
+	list-style-type: none;
+	display: inline-block;
+	width: 20%;
+	margin: 10px;
+}
+.tom {
+
+}
