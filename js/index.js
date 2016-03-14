@@ -1,34 +1,86 @@
-var weight=3;
-var num = 1;
-
-function veg(num, price, weight, id) {
-	this.num = num;
-	this.price = price;
-	this.weight = weight;
-	this.id = id;
+var $ = function (id){
+	return document.getElementById(id);
 }
 
-var produce = [];
+window.onload = function(){
+	$('imgBaggedGreens').onclick = calcBaggedGreens;
+	$('imgBunch').onclick = calcBunch;
+	$('imgCarrot').onclick = calcCarrot;
+	$('imgHerbs').onclick = calcHerbs;
+	$('imgLettuce').onclick = calcLettuce;
+	$('imgOnion').onclick = calcOnion;
+	$('imgPepper').onclick = calcPepper;
+	$('imgPotato').onclick = calcPotato;
+	$('imgTomato').onclick = calcTomato;
+}
 
-var tomato = new veg(null, 3.50, weight, "tomato");
-var bunch = new veg (num, 3, null, bunch);
-var potato = new veg(null, 2, weight);
-var pepper = new veg(null, 2.50, weight);
-var onion = new veg(null, 2, weight);
-var lettuce = new veg(num, 3, null);
-var herb = new veg(num, 2, null);
-var car = new veg(num, 3, null);
-var bag = new veg(num, 3.50, null);
+var total = 0;
 
-produce.push("tomato", "bunch", "potato", "pepper", "onion", "lettuce", "herb", "car", "bag");
+function calcBaggedGreens () {
+	var babyGreens = $('imgBaggedGreens');
+	$('txtReceipt').innerHTML += '$' + babyGreens.alt + "\tBaby Greens</br>";
+	total += parseFloat(babyGreens.alt);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
 
-function findId() {
-	$('img').click(function() {
- 		($(this).attr("id")).valueof()});
- 	};
+}
+function calcBunch () {
+	var bunch = $('imgBunch');
+	$('txtReceipt').innerHTML += '$' + bunch.alt + '\tBunch of Greens</br>';
+	total += parseFloat(bunch.alt);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
 
- console.log(findId)
-console.log(findId(this))
-function weightprice	
-	if (#id===produce[3]);
-		then console.log("true")
+}
+function calcCarrot () {
+	var carrot = $('imgCarrot');
+	$('txtReceipt').innerHTML += '$' + carrot.alt + '\tCarrots</br>';
+	total += parseFloat(carrot.alt);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+
+}
+function calcHerbs () {
+	var herbs = $('imgHerbs');
+	$('txtReceipt').innerHTML += '$' + herbs.alt + '\tHerb</br>';
+	total += parseFloat(herbs.alt);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+
+}
+function calcLettuce () {
+	var lettuce = $('imgLettuce');
+	$('txtReceipt').innerHTML += '$' + lettuce.alt + '\tHead Lettuce</br>';
+	total += parseFloat(lettuce.alt);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+
+}
+function calcOnion () {
+	var onion = $('imgOnion'),
+		weight = $('txtOnionWeight').value;
+	$('txtReceipt').innerHTML += '$' + (onion.alt * weight) + '\tOnions</br>';
+	total += (parseFloat(onion.alt) * weight);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+	$('txtOnionWeight').value = "";
+}
+
+function calcPepper () {
+	var pepper = $('imgPepper'),
+		weight = $('txtPepperWeight').value;
+	$('txtReceipt').innerHTML += '$' + (pepper.alt * weight) + '\tPeppers</br>';
+	total += (parseFloat(pepper.alt) * weight);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+	$('txtPepperWeight').value = "";
+}
+function calcPotato () {
+	var potato = $('imgPotato'),
+		weight = $('txtPotatoWeight').value;
+	$('txtReceipt').innerHTML += '$' + (potato.alt * weight) + '\tPotatoes</br>';
+	total += (parseFloat(potato.alt) * weight);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+	$('txtPotatoWeight').value = "";
+}
+function calcTomato () {
+	var tomato = $('imgTomato'),
+		weight = $('txtTomatoWeight').value;
+	$('txtReceipt').innerHTML += '$' + (tomato.alt * weight) + '\tTomatos</br>';
+	total += (parseFloat(tomato.alt) * weight);
+	$('total').innerHTML = "Total:\t\t  $" + total.toFixed(2);
+	$('txtTomatoWeight').value = "";
+}
