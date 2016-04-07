@@ -20,11 +20,15 @@ img {
 }
 #total {
 	position: absolute;
-	bottom: 0px;
+	bottom: 20px;
 	font-size: 2em;
 }
 input {
 	width: 150px;
 	height: 20px;
 	font-size: 1em;
+}
+#btnCustomer {
+	position: absolute;
+	bottom: 0px;
 }

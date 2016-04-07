@@ -3,6 +3,7 @@ var $ = function (id){
 }
 
 window.onload = function(){
+	$('btnCustomer').onclick = newCustomer;
 	$('imgBaggedGreens').onclick = calcBaggedGreens;
 	$('imgBunch').onclick = calcBunch;
 	$('imgCarrot').onclick = calcCarrot;
@@ -14,6 +15,21 @@ window.onload = function(){
 	$('imgTomato').onclick = calcTomato;
 }
 
+function Customer (name, greens, bunch, carrot, herb, lettuce, onion, pepper, potato, tomato) {
+	this.name = name;
+	this.greens = greens;
+	this.bunch = bunch;
+	this.carrot = carrot;
+	this.herb = herb;
+	this.lettuce = lettuce;
+	this.onion = onion;
+	this.pepper = pepper;
+	this.potato = potato;
+	this.tomato = tomato;
+}
+function newCustomer() {
+	
+}
 var total = 0;
 
 function calcBaggedGreens () {
